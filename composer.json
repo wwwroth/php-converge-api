@@ -1,0 +1,39 @@
+{
+  "name": "wwwroth/php-converge-api",
+  "description": "A PHP wrapper for using Evalon Converge's API",
+  "keywords": [
+    "evalon", "converge", "api", "wrapper", "client"
+  ],
+  "homepage": "https://github.com/wwwroth/php-converge-api",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Phillip J. Roth",
+      "email": "philliproth@gmail.com",
+      "homepage": "http://wwwroth.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php" : ">=5.5.0",
+    "guzzlehttp/guzzle": "~5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit" : "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "wwwroth\\Converge\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "wwwroth\\Converge\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
