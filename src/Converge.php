@@ -35,6 +35,22 @@ class Converge
     }
 
     /**
+     * Make request to Converge with transaction type and parameters.
+     * @param $transactionType
+     * @param array $parameters
+     * @return array
+     * @throws ConvergeException
+     */
+    public function request($transactionType, array $parameters)
+    {
+        $availableTransactionTypes = ['ccsale', 'ccauthonly', 'ccavsonly', 'ccverify'];
+        if (!in_array($transactionType, $availableTransactionTypes)) {
+            throw new ConvergeException('Invalid transaction type specified.');
+        }
+        return $this->httpRequest(array_merge(['ssl_transaction_type' => $transactionType], $parameters));
+    }
+
+    /**
      * Validate provided settings when constructing class.
      * @param array $settings
      * @return bool
@@ -54,7 +70,11 @@ class Converge
         return true;
     }
 
-    private function request($parameters)
+    /**
+     * @param $parameters
+     * @return array
+     */
+    private function httpRequest($parameters)
     {
         $parameters['ssl_merchant_id'] = $this->merchant_id;
         $parameters['ssl_user_id'] = $this->user_id;
@@ -67,16 +87,15 @@ class Converge
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parameters));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
+        // Break out response into array of key value pairs
         $response = [];
+
+        return curl_exec($ch);
+
         foreach (explode("\n", curl_exec($ch)) as $part) {
             $pParts = explode('=', $part);
             $response[$pParts[0]] = $pParts[1];
         }
-        var_dump($response);
-    }
-
-    public function ccVerify(array $parameters)
-    {
-        return $this->request(array_merge(['ssl_transaction_type' => 'ccverify'], $parameters));
+        return $response;
     }
 }
