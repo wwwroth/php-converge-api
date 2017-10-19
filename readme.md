@@ -1,14 +1,14 @@
 # PHP Converge API
 
-A simple, easy to use wrapper for Elavon's Converge API.
+A simple, easy to use wrapper for Elavon's Converge API via key value pairs instead of XML.
 
 ## Compatibility
 
-This package will work with PHP >= 5.5 and requires GuzzleHttp ~5.0.
+This package will work with PHP >= 5.5 with CURL enabled.
 
 ## Installation
 Install this package via Composer with 
-`composer require "wwwroth/php-converge-api:dev-master"`.
+`composer require "wwwroth/php-converge-api:0.1"`.
 
 ## Example usage
 Construct a new instance with your merchant ID, user ID, PIN and if you're using demo credentials or not.
@@ -20,7 +20,7 @@ $converge = new \wwwroth\Converge\Converge([
     'demo' => true,
 ]);
 ```
-You can then call any of the Converge transaction type with `->request()` and provide the transaction type as well as an array of key value pairs to send to the API
+You can then call any of the Converge transaction type with `->request()` and provide the transaction type as well as an array of key value pairs to send to the API. The package will use the demo or live endpoint automatically based on how you constructed the object.
 ### ccgettoken
 ```
 $generateToken = $class->request('ccgettoken', [
@@ -31,6 +31,7 @@ $generateToken = $class->request('ccgettoken', [
     'ssl_avs_address' => '2 South Street #10',
     'ssl_avs_zip' => '07960',
 ]);
+if ($generateToken['success']) { ... }
 ```
 ### ccsale
 ```
@@ -42,4 +43,5 @@ $generateToken = $class->request('ccsale', [
     'ssl_avs_address' => '44 Miller Road',
     'ssl_avs_zip' => '07960',
 ]);
+if ($generateToken['success']) { ... }
 ```
