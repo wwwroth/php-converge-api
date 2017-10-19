@@ -1,16 +1,16 @@
-#PHP Converge API
+# PHP Converge API
 
 A simple, easy to use wrapper for Elavon's Converge API.
 
-##Compatibility
+## Compatibility
 
 This package will work with PHP >= 5.5 and requires GuzzleHttp ~5.0.
 
-##Installation
+## Installation
 Install this package via Composer with 
 `composer require "wwwroth/php-converge-api:dev-master"`.
 
-##Example usage
+## Example usage
 Construct a new instance with your merchant ID, user ID, PIN and if you're using demo credentials or not.
 ```
 $converge = new \wwwroth\Converge\Converge([
