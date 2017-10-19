@@ -14,9 +14,9 @@ Install this package via Composer with
 Construct a new instance with your merchant ID, user ID, PIN and if you're using demo credentials or not.
 ```
 $converge = new \wwwroth\Converge\Converge([
-    'merchant_id' => '007928',
+    'merchant_id' => '12345',
     'user_id' => 'webpage',
-    'pin' => '11TJ9L',
+    'pin' => '123456',
     'demo' => true,
 ]);
 ```
