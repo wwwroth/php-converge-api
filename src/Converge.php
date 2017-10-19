@@ -13,6 +13,26 @@ class Converge
 
     private $xmlEndpoint;
 
+    private $transactionTypes = [
+        'ccauthonly',
+        'ccavsonly',
+        'ccsale',
+        'ccverify',
+        'ccgettoken',
+        'cccredit',
+        'ccforce',
+        'ccbalinquiry',
+        'ccgettoken',
+        'ccreturn',
+        'ccvoid',
+        'cccomplete',
+        'ccdelete',
+        'ccupdatetip',
+        'ccsignature',
+        'ccaddrecurring',
+        'ccaddinstall'
+    ];
+
     /**
      * Construct Converge object with provided settings.
      * @param array $settings
@@ -43,8 +63,7 @@ class Converge
      */
     public function request($transactionType, array $parameters)
     {
-        $availableTransactionTypes = ['ccsale', 'ccauthonly', 'ccavsonly', 'ccverify'];
-        if (!in_array($transactionType, $availableTransactionTypes)) {
+        if (!in_array($transactionType, $this->transactionTypes)) {
             throw new ConvergeException('Invalid transaction type specified.');
         }
         return $this->httpRequest(array_merge(['ssl_transaction_type' => $transactionType], $parameters));
@@ -89,13 +108,13 @@ class Converge
 
         // Break out response into array of key value pairs
         $response = [];
-
-        return curl_exec($ch);
-
         foreach (explode("\n", curl_exec($ch)) as $part) {
             $pParts = explode('=', $part);
-            $response[$pParts[0]] = $pParts[1];
+            if (isset($pParts[1])) $response[$pParts[0]] = $pParts[1];
         }
+
+        isset($response['errorCode']) ? $response['success'] = false : $response['success'] = true;
+
         return $response;
     }
 }
