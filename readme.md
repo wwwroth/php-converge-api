@@ -8,7 +8,7 @@ This package will work with PHP >= 5.5 with CURL enabled.
 
 ## Installation
 Install this package via Composer with 
-`composer require "wwwroth/php-converge-api:0.1"`.
+`composer require wwwroth/php-converge-api:dev-master`.
 
 ## Example usage
 Construct a new instance with your merchant ID, user ID, PIN and if you're using demo credentials or not.
