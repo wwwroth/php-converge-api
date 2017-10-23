@@ -45,8 +45,8 @@ class Converge
         $this->user_id = $settings['user_id'];
         $this->pin = $settings['pin'];
 
-        if (isset($settings['demo']) && is_bool($settings['demo'])) {
-            $this->demo = $settings['demo'];
+        if (isset($settings['demo']) && $settings['demo'] == true) {
+            $this->demo = true;
             $this->xmlEndpoint = "https://api.demo.convergepay.com/VirtualMerchantDemo/process.do";
         }  else {
             $this->demo = false;
