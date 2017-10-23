@@ -23,7 +23,7 @@ $converge = new \wwwroth\Converge\Converge([
 You can then call any of the Converge transaction type with `->request()` and provide the transaction type as well as an array of key value pairs to send to the API. The package will use the demo or live endpoint automatically based on how you constructed the object.
 ### ccgettoken
 ```
-$generateToken = $class->request('ccgettoken', [
+$generateToken = $converge->request('ccgettoken', [
     'ssl_card_number' => '5432************',
     'ssl_exp_date' => '0325',
     'ssl_cvv2cvc2' => '321',
@@ -35,7 +35,7 @@ if ($generateToken['success']) { ... }
 ```
 ### ccsale
 ```
-$generateToken = $class->request('ccsale', [
+$createSale = $converge->request('ccsale', [
     'ssl_card_number' => '4321************',
     'ssl_exp_date' => '0420',
     'ssl_cvv2cvc2' => '123',
@@ -43,5 +43,5 @@ $generateToken = $class->request('ccsale', [
     'ssl_avs_address' => '44 Miller Road',
     'ssl_avs_zip' => '07960',
 ]);
-if ($generateToken['success']) { ... }
+if ($createSale['success']) { ... }
 ```
