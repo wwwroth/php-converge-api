@@ -8,12 +8,12 @@ This package will work with PHP >= 5.5 with CURL enabled.
 
 ## Installation
 Install this package via Composer with 
-`composer require wwwroth/php-converge-api:dev-master`.
+`composer require imzza/php-converge-api:dev-master`.
 
 ## Example usage
 Construct a new instance with your merchant ID, user ID, PIN and if you're using demo credentials or not.
 ```
-$converge = new \wwwroth\Converge\Converge([
+$converge = new \imzza\Converge\Converge([
     'merchant_id' => '12345',
     'user_id' => 'webpage',
     'pin' => '123456',
@@ -44,4 +44,28 @@ $createSale = $converge->request('ccsale', [
     'ssl_avs_zip' => '07960',
 ]);
 if ($createSale['success']) { ... }
+```
+```
+private $transactionTypes = [
+        'ccauthonly',
+        'ccavsonly',
+        'ccsale',
+        'ccverify',
+        'ccgettoken',
+        'cccredit',
+        'ccforce',
+        'ccbalinquiry',
+        'ccgettoken',
+        'ccreturn',
+        'ccvoid',
+        'cccomplete',
+        'ccdelete',
+        'ccupdatetip',
+        'ccsignature',
+        'ccaddrecurring',
+        'ccaddinstall',
+        'ccupdatetoken',
+        'ccdeletetoken',
+        'ccquerytoken'
+    ];
 ```
