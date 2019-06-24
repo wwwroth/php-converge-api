@@ -30,7 +30,10 @@ class Converge
         'ccupdatetip',
         'ccsignature',
         'ccaddrecurring',
-        'ccaddinstall'
+        'ccaddinstall',
+        'ccupdatetoken',
+        'ccdeletetoken',
+        'ccquerytoken'
     ];
 
     /**
