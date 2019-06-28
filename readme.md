@@ -45,27 +45,26 @@ $createSale = $converge->request('ccsale', [
 ]);
 if ($createSale['success']) { ... }
 ```
+### All Transaction Types
 ```
-private $transactionTypes = [
-        'ccauthonly',
-        'ccavsonly',
-        'ccsale',
-        'ccverify',
-        'ccgettoken',
-        'cccredit',
-        'ccforce',
-        'ccbalinquiry',
-        'ccgettoken',
-        'ccreturn',
-        'ccvoid',
-        'cccomplete',
-        'ccdelete',
-        'ccupdatetip',
-        'ccsignature',
-        'ccaddrecurring',
-        'ccaddinstall',
-        'ccupdatetoken',
-        'ccdeletetoken',
-        'ccquerytoken'
-    ];
+* ccauthonly
+* ccavsonly
+* ccsale
+* ccverify
+* ccgettoken
+* cccredit
+* ccforce
+* ccbalinquiry
+* ccgettoken
+* ccreturn
+* ccvoid
+* cccomplete
+* ccdelete
+* ccupdatetip
+* ccsignature
+* ccaddrecurring
+* ccaddinstall
+* ccupdatetoken
+* ccdeletetoken
+* ccquerytoken
 ```
