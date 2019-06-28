@@ -1,16 +1,15 @@
 {
-  "name": "imzza/php-converge-api",
+  "name": "wwwroth/php-converge-api",
   "description": "A PHP wrapper for using Evalon Converge's API",
   "keywords": [
     "evalon", "converge", "api", "wrapper", "client"
   ],
-  "homepage": "https://github.com/yasirrose/php-converge-api",
+  "homepage": "https://github.com/wwwroth/php-converge-api",
   "license": "MIT",
   "authors": [
     {
-      "name": "IRFAN ULLAH",
-      "email": "irfanullah73@gmail.com",
-      "homepage": "https://imzza.github.io",
+      "name": "Phillip Roth",
+      "email": "philliproth@gmail.com",
       "role": "Developer"
     }
   ],
@@ -22,12 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "imzza\\Converge\\": "src"
+      "wwwroth\\Converge\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "imzza\\Converge\\Test\\": "tests"
+      "wwwroth\\Converge\\Test\\": "tests"
     }
   },
   "extra": {
